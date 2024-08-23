@@ -1,5 +1,5 @@
 
-#??oklu Do??rusal Regreyon Analizi
+#Coklu Dogrusal Regreyon Analizi
 
 student<-read.csv('Student_Performance_Examine.csv', header = TRUE , sep = "," , dec = ".")
 View(student)
@@ -16,7 +16,7 @@ pairs(na.omit(student1) , pch = 19)
 
 library(mice)
 
-## Kayip G??zlem ??r??nt??s??
+## Kayip Gozlem Oruntusu
 
 md.pattern(student1)
 
@@ -56,7 +56,7 @@ RMSE(predictions , test_Set$Performance.Index)
 MAE(predictions , test_Set$Performance.Index)
 
 
-# Cook's Distance(Ayk??r?? de??erler)
+# Cook's Distance(Aykiri degerler)
 
 dist <- cooks.distance(model_std)
 olcut1 <- mean(dist)*3
@@ -81,11 +81,11 @@ summary(model_std_removed)
 AIC(model_std_removed,k=6)
 BIC(model_std_removed)
 
-#??oklu Bag??nt?? Problem?? 
+#Coklu Baginti Problemi
 library(car)
 vif(model_std)
 
-#Kategorik Verilerle Model Olu??turma
+#Kategorik Verilerle Model Olusturma
 student_cat <- student[ student$Extracurricular.Activities == "Yes" | 
                           student$Extracurricular.Activities == "No", ]
 nrow(student_cat)
